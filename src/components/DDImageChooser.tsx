@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 import React, { useEffect, useRef, useState } from "react";
 import { MdImage } from "react-icons/md";
@@ -57,7 +58,7 @@ export default function DDImageChooser() {
           ) : (
             <div className="w-full h-full flex justify-center align-top flex-wrap gap-1">
               {imagesUrl.map((imageUrl, index) => (
-                <img className="aspect-video w-32 rounded-md" key={index} src={imageUrl} />
+                <img className="aspect-video w-32 rounded-md" key={index} src={imageUrl} alt="Selected Image"/>
               ))}
             </div>
           )}
