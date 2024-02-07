@@ -11,6 +11,7 @@ export function useImagePreview(files: FileList | null) {
       imagesUrl.forEach((image) => URL.revokeObjectURL(image));
       setImagesUrl([]);
     };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [files]);
 
   return { imagesUrl };
