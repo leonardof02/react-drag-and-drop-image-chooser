@@ -1,17 +1,17 @@
 import { useEffect, useState } from "react";
 
-export function useImagePreview(imageFiles: FileList | null) {
+export function useImagePreview(files: FileList | null) {
   const [imagesUrl, setImagesUrl] = useState<string[]>([]);
 
   useEffect(() => {
-    if (!imageFiles || imageFiles.length == 0) return;
-    const imagesUrl = Array.from(imageFiles).map((imageFile) => URL.createObjectURL(imageFile));
-    setImagesUrl(imagesUrl);
+    if (!files || files?.length == 0) return;
+    const imagesPreview = Array.from(files).map((file) => URL.createObjectURL(file));
+    setImagesUrl(imagesPreview);
     return () => {
-      imagesUrl.forEach((imageUrl) => URL.revokeObjectURL(imageUrl));
+      imagesUrl.forEach((image) => URL.revokeObjectURL(image));
       setImagesUrl([]);
     };
-  }, [imageFiles]);
+  }, [files]);
 
   return { imagesUrl };
 }
